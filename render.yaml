@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: multimodal-video-summariser
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_TRANSCRIPTION_MODEL
+        value: whisper-large-v3
+      - key: GROQ_VISION_MODEL
+        value: qwen/qwen3.8-27b
+      - key: GROQ_SUMMARY_MODEL
+        value: llama-3.3-70b-versatile
+      - key: MAX_UPLOAD_MB
+        value: "300"
+      - key: MAX_FRAMES
+        value: "12"
